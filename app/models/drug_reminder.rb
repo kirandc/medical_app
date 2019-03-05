@@ -1,6 +1,6 @@
 class DrugReminder < ApplicationRecord
-  belongs_to :prescription_id
-  belongs_to :patient_id
+  belongs_to :prescription
+  belongs_to :patient
 
   validates :reminder_message, presence: true
 end

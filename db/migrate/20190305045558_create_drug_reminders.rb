@@ -3,6 +3,7 @@ class CreateDrugReminders < ActiveRecord::Migration[5.2]
     create_table :drug_reminders do |t|
       t.integer     :prescription_id
       t.integer     :patient_id
+      t.datetime    :reminder_time
       t.text        :reminder_message
       t.string      :reminder_reply
       t.timestamps

@@ -8,7 +8,7 @@ class CreatePrescriptions < ActiveRecord::Migration[5.2]
       t.text     :findings
       t.text     :instructions
       t.text     :report_details
-      t.boolean  :reminder_set,  default: :false
+      t.boolean  :reminder_set,  default: false
       t.timestamps
     end
     add_index :prescriptions, :appointment_id

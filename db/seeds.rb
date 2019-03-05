@@ -26,7 +26,7 @@ doctor = Doctor.create({specialization: "General Surgery", qualifications: "MBBS
 doctor_user.resource = doctor
 doctor_user.save!
 
-#Creating sample data for Patient
+#Creating sample data for Patient 1
 patient_role = Role.where(name: 'patient').first
 patient_user = User.new({ username: 'kiran', name: 'Kiran Chaudhari', is_active: true, mobile: '9899009900', email: 'kiran@gmail.com', dob: Date.parse('1983/5/6'), gender: 'Male', registered_on: Date.today, role: patient_role })
 patient = Patient.create({past_history: 'no', allergy: 'no allergy'})
@@ -39,14 +39,26 @@ appointment = Appointment.create!(start_time: Time.new(2019, 03, 10, 11, 0, 0), 
 
 prescription = Prescription.create!(appointment: appointment, doctor: doctor, patient: patient, complaints: 'fever from last night')
 
-prescription_drug1 = PrescriptionDrug.create(prescription: prescription, drug_name: "Drug 1",
-  instruction: "Take more water", morning_after_food: "1 tablet", afternoon_after_food: "1 tablet",
-  night_after_food: "1 tablet", days: 3)
+PrescriptionDrug.create(prescription: prescription, drug_name: "Drug1", instruction: "Take more water", morning_after_food: "1 tablet", afternoon_after_food: "1 tablet", night_after_food: "1 tablet", days: 3)
 
-prescription_drug2 = PrescriptionDrug.create(prescription: prescription, drug_name: "Drug 2",
-  morning_before_food: "1 tablet", afternoon_before_food: "1 tablet",
-  night_before_food: "1 tablet", days: 3)
+PrescriptionDrug.create(prescription: prescription, drug_name: "Drug2", morning_before_food: "1 tablet", afternoon_before_food: "1 tablet", night_before_food: "1 tablet", days: 3)
 
-prescription_drug3 = PrescriptionDrug.create(prescription: prescription, drug_name: "Drug 3",
-  morning_after_food: "1 tablet", afternoon_after_food: "1 tablet",
-  night_after_food: "1 tablet", days: 5)
+PrescriptionDrug.create(prescription: prescription, drug_name: "Drug3", morning_after_food: "1 tablet", afternoon_after_food: "1 tablet", night_after_food: "1 tablet", days: 5)
+
+#Creating sample data for Patient 2
+patient_user = User.new({ username: 'Prajakta', name: 'Kiran Chaudhari', is_active: true, mobile: '9998889900', email: 'prajkta@gmail.com', dob: Date.parse('1991/4/25'), gender: 'Female', registered_on: Date.today, role: patient_role })
+patient = Patient.create({past_history: 'no', allergy: 'no allergy'})
+patient_user.resource = patient
+patient_user.save!
+
+#Creating sample data for Appointment
+
+appointment = Appointment.create!(start_time: Time.new(2019, 03, 10, 11, 15, 0), end_time: Time.new(2019, 03, 10, 11, 30, 0), doctor: doctor, patient: patient)
+
+prescription = Prescription.create!(appointment: appointment, doctor: doctor, patient: patient, complaints: 'cold and cough')
+
+PrescriptionDrug.create(prescription: prescription, drug_name: "Drug1", morning_after_food: "1 tablet", afternoon_after_food: "1 tablet", night_after_food: "1 tablet", days: 5)
+
+PrescriptionDrug.create(prescription: prescription, drug_name: "Drug2",morning_before_food: "1 tablet", afternoon_before_food: "1 tablet", night_before_food: "1 tablet", days: 5)
+
+PrescriptionDrug.create(prescription: prescription, drug_name: "Drug3",morning_after_food: "1 tablet", afternoon_after_food: "1 tablet", night_after_food: "1 tablet", days: 3)

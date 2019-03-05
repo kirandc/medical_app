@@ -44,6 +44,7 @@ ActiveRecord::Schema.define(version: 2019_03_05_054816) do
   create_table "drug_reminders", force: :cascade do |t|
     t.integer "prescription_id"
     t.integer "patient_id"
+    t.datetime "reminder_time"
     t.text "reminder_message"
     t.string "reminder_reply"
     t.datetime "created_at", null: false
@@ -88,7 +89,7 @@ ActiveRecord::Schema.define(version: 2019_03_05_054816) do
     t.text "findings"
     t.text "instructions"
     t.text "report_details"
-    t.boolean "reminder_set", default: true
+    t.boolean "reminder_set", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["appointment_id"], name: "index_prescriptions_on_appointment_id"
