@@ -1,0 +1,2 @@
+class DrugReminder < ApplicationRecord
+end
