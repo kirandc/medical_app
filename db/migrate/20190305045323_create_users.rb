@@ -7,13 +7,11 @@ class CreateUsers < ActiveRecord::Migration[5.2]
       t.string      :email
       t.string      :gender
       t.datetime    :dob
-      t.string      :profile_image
       t.boolean     :is_active,            default: false
       t.string      :resource_type
       t.integer     :resource_id
       t.date        :registered_on
       t.string      :name
-      t.string      :uuid
       t.boolean     :is_app_installed,     default: false
       t.references  :role
       t.timestamps

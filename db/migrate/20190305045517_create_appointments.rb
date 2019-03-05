@@ -12,7 +12,6 @@ class CreateAppointments < ActiveRecord::Migration[5.2]
       t.float    :heart_rate
       t.string   :blood_pressure
       t.integer  :bill_amount
-      t.string   :uuid
       t.timestamps
     end
     add_index :appointments, :doctor_id

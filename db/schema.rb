@@ -27,7 +27,6 @@ ActiveRecord::Schema.define(version: 2019_03_05_054816) do
     t.float "heart_rate"
     t.string "blood_pressure"
     t.integer "bill_amount"
-    t.string "uuid"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["doctor_id"], name: "index_appointments_on_doctor_id"
@@ -36,7 +35,7 @@ ActiveRecord::Schema.define(version: 2019_03_05_054816) do
 
   create_table "doctors", force: :cascade do |t|
     t.string "specialization"
-    t.string "qualifications", default: [], array: true
+    t.string "qualifications"
     t.string "signature"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -110,13 +109,11 @@ ActiveRecord::Schema.define(version: 2019_03_05_054816) do
     t.string "email"
     t.string "gender"
     t.datetime "dob"
-    t.string "profile_image"
     t.boolean "is_active", default: false
     t.string "resource_type"
     t.integer "resource_id"
     t.date "registered_on"
     t.string "name"
-    t.string "uuid"
     t.boolean "is_app_installed", default: false
     t.bigint "role_id"
     t.datetime "created_at", null: false
