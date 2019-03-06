@@ -12,7 +12,7 @@
   %tbody
     - @drug_reminders.each do |drug_reminder|
       %tr
-        %td= drug_reminder.reminder_time.strftime('%d/%m/%Y %H:%M %p')
+        %td= drug_reminder.reminder_time.strftime('%d/%m/%Y')
         %td= drug_reminder.reminder_message
         %td= drug_reminder.reminder_reply
 
