@@ -54,12 +54,14 @@ ActiveRecord::Schema.define(version: 2019_03_05_054816) do
   end
 
   create_table "patients", force: :cascade do |t|
+    t.integer "doctor_id"
     t.text "past_history"
     t.text "allergy"
     t.text "family_history"
     t.text "notes"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["doctor_id"], name: "index_patients_on_doctor_id"
   end
 
   create_table "prescription_drugs", force: :cascade do |t|

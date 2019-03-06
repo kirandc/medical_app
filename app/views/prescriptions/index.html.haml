@@ -1,0 +1,24 @@
+.row
+  .col
+    %h4.ml-3.mt-3.mb-3
+      = @patient.user.name
+      Prescription List
+%table.table.table-striped
+  %thead.thead-dark
+    %tr
+      %th{:scope => "col"} Date
+      %th{:scope => "col"} Complaints
+      %th{:scope => "col"} Findings
+      %th{:scope => "col"} Instructions
+      %th{:scope => "col"}
+  %tbody
+    - @prescriptions.each do |prescriptions|
+      %tr
+        %td= prescriptions.appointment.start_time.strftime('%d/%m/%Y')
+        %td= prescriptions.complaints
+        %td= prescriptions.findings
+        %td= prescriptions.instructions
+        %td= link_to 'Check Reminders', patient_prescription_drug_reminders_path(@patient, prescriptions), class: 'btn btn-primary'
+
+.pull-right.ml-2
+  =link_to 'Back', patients_path, class: 'btn btn-secondary'

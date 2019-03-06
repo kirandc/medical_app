@@ -1,0 +1,23 @@
+.row
+  .col
+    %h4.ml-3.mt-3.mb-3
+      = @patient.user.name
+      Drug reminders
+%table.table.table-striped
+  %thead.thead-dark
+    %tr
+      %th{:scope => "col"} Time
+      %th{:scope => "col"} Message
+      %th{:scope => "col"} Response
+      %th{:scope => "col"}
+  %tbody
+    - @drug_reminders.each do |drug_reminder|
+      %tr
+        %td= drug_reminder.reminder_time.strftime('%d/%m/%Y %H:%M %p')
+        %td= drug_reminder.reminder_message
+        %td= drug_reminder.reminder_reply
+
+.pull-right.ml-2
+  =link_to 'Back', patient_prescriptions_path(@patient), class: 'btn btn-secondary'
+
+

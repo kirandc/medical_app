@@ -1,0 +1,23 @@
+.row
+  .col
+    %h4.ml-3.mt-3.mb-3 Patients List
+%table.table.table-striped
+  %thead.thead-dark
+    %tr
+      %th{:scope => "col"} Name
+      %th{:scope => "col"} Mobile
+      %th{:scope => "col"} Email
+      %th{:scope => "col"} Gender
+      %th{:scope => "col"} DOB
+      %th{:scope => "col"}
+  %tbody
+    - @patients.each do |patient|
+      %tr
+        %td= patient.user.name
+        %td= patient.user.mobile
+        %td= patient.user.email
+        %td= patient.user.gender
+        %td= patient.user.dob.strftime('%d/%m/%Y')
+        %td= link_to 'Prescriptions', patient_prescriptions_path(patient), class: 'btn btn-primary'
+
+

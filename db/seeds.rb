@@ -28,8 +28,8 @@ doctor_user.save!
 
 #Creating sample data for Patient 1
 patient_role = Role.where(name: 'patient').first
-patient_user = User.new({ username: 'kiran', name: 'Kiran Chaudhari', is_active: true, mobile: '9899009900', email: 'kiran@gmail.com', dob: Date.parse('1983/5/6'), gender: 'Male', registered_on: Date.today, role: patient_role })
-patient = Patient.create({past_history: 'no', allergy: 'no allergy'})
+patient_user = User.new({ username: 'kiran', name: 'Kiran Chaudhari', is_active: true, mobile: '9899009900', email: 'kiran@gmail.com', dob: Date.parse('1983/5/6'), gender: 'Male', registered_on: Date.today, role: patient_role})
+patient = Patient.create({past_history: 'no', allergy: 'no allergy', doctor:  doctor})
 patient_user.resource = patient
 patient_user.save!
 
@@ -46,8 +46,8 @@ PrescriptionDrug.create(prescription: prescription, drug_name: "Drug2", morning_
 PrescriptionDrug.create(prescription: prescription, drug_name: "Drug3", morning_after_food: "1 tablet", afternoon_after_food: "1 tablet", night_after_food: "1 tablet", days: 5)
 
 #Creating sample data for Patient 2
-patient_user = User.new({ username: 'Prajakta', name: 'Kiran Chaudhari', is_active: true, mobile: '9998889900', email: 'prajkta@gmail.com', dob: Date.parse('1991/4/25'), gender: 'Female', registered_on: Date.today, role: patient_role })
-patient = Patient.create({past_history: 'no', allergy: 'no allergy'})
+patient_user = User.new({ username: 'Prajakta', name: 'Prajkta Chaudhari', is_active: true, mobile: '9998889900', email: 'prajkta@gmail.com', dob: Date.parse('1991/4/25'), gender: 'Female', registered_on: Date.today, role: patient_role})
+patient = Patient.create({past_history: 'no', allergy: 'no allergy', doctor:  doctor })
 patient_user.resource = patient
 patient_user.save!
 
