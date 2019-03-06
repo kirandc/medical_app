@@ -1,0 +1,46 @@
+.row
+  .col
+    %h4.ml-3.mt-3.mb-3
+      = @patient.user.name
+      Prescription Details
+
+%table.table.table-striped.table-bordered
+  %thead.thead-dark
+    %tr
+      %th{:scope => "col"}
+      %th{:scope => "col"}
+      %th.text-center{:colspan => "2"} Morning
+      %th.text-center{:colspan => "2"} Afternoon
+      %th.text-center{:colspan => "2"} Evening
+      %th.text-center{:colspan => "2"} Night
+      %th{:colspan => "2"}
+  %tbody
+    %tr
+      %th{:scope => "col"} Name
+      %th{:scope => "col"} Instruction
+      %th{:scope => "col"} Before
+      %th{:scope => "col"} After
+      %th{:scope => "col"} Before
+      %th{:scope => "col"} After
+      %th{:scope => "col"} Before
+      %th{:scope => "col"} After
+      %th{:scope => "col"} Before
+      %th{:scope => "col"} After
+      %th{:scope => "col"} Days
+    - @prescription_drugs.each do |drug|
+      %tr
+        %td= drug.drug_name
+        %td= drug.instruction
+        %td= drug.morning_before_food
+        %td= drug.morning_after_food
+        %td= drug.afternoon_before_food
+        %td= drug.afternoon_after_food
+        %td= drug.evening_before_food
+        %td= drug.evening_after_food
+        %td= drug.night_before_food
+        %td= drug.night_after_food
+        %td= drug.days
+
+.pull-right.ml-2
+  =link_to 'Back', patient_prescriptions_path(@patient), class: 'btn btn-secondary'
+

@@ -12,13 +12,15 @@
       %th{:scope => "col"} Instructions
       %th{:scope => "col"}
   %tbody
-    - @prescriptions.each do |prescriptions|
+    - @prescriptions.each do |prescription|
       %tr
-        %td= prescriptions.appointment.start_time.strftime('%d/%m/%Y')
-        %td= prescriptions.complaints
-        %td= prescriptions.findings
-        %td= prescriptions.instructions
-        %td= link_to 'Check Reminders', patient_prescription_drug_reminders_path(@patient, prescriptions), class: 'btn btn-primary'
+        %td= prescription.appointment.start_time.strftime('%d/%m/%Y')
+        %td= prescription.complaints
+        %td= prescription.findings
+        %td= prescription.instructions
+        %td
+          = link_to 'Details', patient_prescription_path(@patient, prescription), class: 'btn btn-primary'
+          = link_to 'Check Reminders', patient_prescription_drug_reminders_path(@patient, prescription), class: 'btn btn-primary'
 
 .pull-right.ml-2
   =link_to 'Back', patients_path, class: 'btn btn-secondary'
