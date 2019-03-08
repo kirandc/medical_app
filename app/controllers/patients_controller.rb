@@ -34,8 +34,6 @@ class PatientsController < ApplicationController
   end
 
   def patient_params
-    #It's should be handle from Uui side we need send  user_attributes.
-    params[:patient][:user_attributes] = params[:patient][:user]
     params.require(:patient).permit([:past_history, :allergy, :family_history, :notes, user_attributes: [:name, :mobile, :email, :dob, :gender]])
   end
 end
