@@ -19,7 +19,7 @@ class PatientsController < ApplicationController
     user.resource = patient
     user.registered_on = Time.now
     if patient.save
-      render_success(data: {user: serialize_resource(patient, PatientSerializer)},
+      render_success(data: {patient: serialize_resource(patient, PatientSerializer)},
                      message: "Created successfully", status: :created)
     else
       render_error(message: "Error in saving", errors: patient.errors,
