@@ -6,6 +6,8 @@ class Prescription < ApplicationRecord
   has_many :prescription_drugs
   has_many :drug_reminders
 
+  accepts_nested_attributes_for :prescription_drugs, reject_if: :all_blank, allow_destroy: true
+
   #Pre define time for medicine
   REMINDER_TIME = { morning_before_food: "08:00 AM", morning_after_food: "10:00 AM", afternoon_before_food: "12:00 PM", afternoon_after_food: "14:00 PM", evening_before_food: "16:00 PM",evening_after_food: "18:00 PM", night_before_food: "20:00 PM", night_after_food: "22:00 PM" }
 
